@@ -523,12 +523,12 @@ void wifi_uart_service(void)
             continue;
         }
         LOG_D("Enter in data_handle,Command is %d\r\n",wifi_data_process_buf[offset + FRAME_TYPE]);
-        printf("Recv:====> ");
-        for(uint8_t i=0;i < rx_value_len;i++)
-        {
-            printf("%02X ",wifi_data_process_buf[offset+i]);
-        }
-        printf(" <====\r\n");
+//        printf("Recv:====> ");
+//        for(uint8_t i=0;i < rx_value_len;i++)
+//        {
+//            printf("%02X ",wifi_data_process_buf[offset+i]);
+//        }
+//        printf(" <====\r\n");
         data_handle(offset);
         offset += rx_value_len;
     }//end while

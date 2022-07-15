@@ -28,7 +28,7 @@
 ******************************************************************************/
 //pid信息，服务端自动插入
 #define MAIN_PRODUCT_KEY "q3xnn9yqt55ifaxm"    //开发平台创建产品后生成的16位字符产品唯一标识
-#define GW_PRODUCT_KEY "rbptoajhwdfsdmbu"    //开发平台创建产品后生成的16位字符产品唯一标识
+#define GW_PRODUCT_KEY "vtboj5kndkktrtrj"    //开发平台创建产品后生成的16位字符产品唯一标识
 
 #define MCU_VER "2.1.1"                                 //用户的软件版本,用于MCU固件升级,MCU升级版本需修改
 
