@@ -99,6 +99,7 @@ void GatewaySyncSolve(int rssi,uint8_t *rx_buffer,uint8_t rx_len)
             case 1:
                 DeviceCheck(Rx_message.Device_ID,Rx_message.From_ID);
                 Slave_Heart(Rx_message.Device_ID,Rx_message.Rssi);//心跳
+                Secure_Sync();//C1 00 01
                 break;
             case 2:
                 Local_Delete(Rx_message.Device_ID);
@@ -224,6 +225,7 @@ void GatewayControlSolve(int rssi,uint8_t *rx_buffer,uint8_t rx_len)
             case 2:
                 DeviceCheck(Rx_message.Device_ID,Rx_message.From_ID);
                 Slave_Heart(Rx_message.Device_ID,Rx_message.Rssi);//设备RSSI更新
+                Secure_Sync();//C1 00 01
                 if(Rx_message.Data == 0 || Rx_message.Data == 1)
                 {
                     MotoUpload(Rx_message.From_ID,Rx_message.Data);//主控开关阀
@@ -243,6 +245,7 @@ void GatewayControlSolve(int rssi,uint8_t *rx_buffer,uint8_t rx_len)
                     Door_Delay_WiFi(Rx_message.From_ID,Rx_message.Device_ID,Rx_message.Data);
                     DeviceCheck(Rx_message.Device_ID,Rx_message.From_ID);
                     Slave_Heart(Rx_message.Device_ID,Rx_message.Rssi);//设备RSSI更新
+                    Secure_Sync();//C1 00 01
                 }
                 break;
             case 4:
@@ -259,6 +262,7 @@ void GatewayControlSolve(int rssi,uint8_t *rx_buffer,uint8_t rx_len)
                 DeviceCheck(Rx_message.Device_ID,Rx_message.From_ID);
                 Slave_Heart(Rx_message.Device_ID,Rx_message.Rssi);//设备RSSI更新
                 MotoUpload(Rx_message.From_ID,Rx_message.Data);//主控开关阀
+                Secure_Sync();//C1 00 01
                 if(Rx_message.Data == 0)
                 {
                     CloseWarn_Slave(Rx_message.Device_ID);
